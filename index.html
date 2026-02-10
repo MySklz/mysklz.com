@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MySklz - AI-Powered Business Training</title>
+<meta name="description" content="Master business skills with AI tutors trained on Alex Hormozi, Dan Martell, and Gary Vaynerchuk">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; line-height: 1.6; color: #2c3e50; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+header { background: linear-gradient(135deg, #00b8d4, #0097a7); padding: 20px 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { color: white; font-size: 32px; font-weight: 900; letter-spacing: -1px; }
+.tagline-small { color: white; font-size: 11px; letter-spacing: 2px; opacity: 0.9; }
+.nav-btn { background: white; color: #00b8d4; padding: 12px 30px; text-decoration: none; border-radius: 25px; font-weight: 700; transition: transform 0.2s; }
+.nav-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(255,255,255,0.3); }
+
+.hero { background: linear-gradient(135deg, #00b8d4, #0097a7); color: white; padding: 100px 20px; text-align: center; }
+.hero .tagline { font-size: 1.2em; letter-spacing: 3px; margin-bottom: 20px; opacity: 0.95; font-weight: 600; }
+.hero h1 { font-size: 3.5em; margin-bottom: 25px; font-weight: 900; line-height: 1.1; }
+.hero p { font-size: 1.4em; margin-bottom: 40px; opacity: 0.95; max-width: 800px; margin-left: auto; margin-right: auto; }
+.cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
+.btn { padding: 18px 45px; font-size: 1.2em; border: none; border-radius: 30px; cursor: pointer; text-decoration: none; display: inline-block; font-weight: 700; transition: all 0.3s; }
+.btn-primary { background: white; color: #00b8d4; box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(255,255,255,0.4); }
+.btn-secondary { background: transparent; color: white; border: 3px solid white; }
+.btn-secondary:hover { background: white; color: #00b8d4; }
+
+.stats { background: #1a252f; color: white; padding: 60px 20px; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center; }
+.stat h3 { font-size: 3.5em; color: #00b8d4; margin-bottom: 10px; font-weight: 900; }
+.stat p { font-size: 1.2em; opacity: 0.9; }
+
+.section { padding: 100px 20px; }
+.section h2 { font-size: 3em; text-align: center; margin-bottom: 20px; color: #2c3e50; font-weight: 900; }
+.section .subtitle { text-align: center; font-size: 1.3em; color: #555; margin-bottom: 60px; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+.mentors { background: #f7f9fa; }
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.card { background: white; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; transition: transform 0.3s; }
+.card:hover { transform: translateY(-10px); box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+.card .icon { font-size: 4em; margin-bottom: 20px; }
+.card h3 { font-size: 2em; margin-bottom: 10px; color: #2c3e50; }
+.card .specialty { color: #00b8d4; font-weight: 700; margin-bottom: 15px; font-size: 1.1em; }
+.card p { color: #555; line-height: 1.8; }
+
+.features { background: white; }
+.feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.feature-card { background: linear-gradient(135deg, #f7f9fa, #ecf0f1); padding: 35px; border-radius: 15px; border-left: 5px solid #00b8d4; }
+.feature-card h3 { font-size: 1.5em; margin-bottom: 15px; color: #2c3e50; }
+.feature-card p { color: #555; line-height: 1.8; }
+
+.cta-section { background: #1a252f; color: white; text-align: center; padding: 100px 20px; }
+.cta-section h2 { color: white; font-size: 3.5em; margin-bottom: 30px; }
+.cta-section p { font-size: 1.4em; margin-bottom: 50px; opacity: 0.9; }
+.form-container { max-width: 600px; margin: 0 auto; background: white; padding: 50px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.3); }
+.form-group { margin-bottom: 25px; text-align: left; }
+.form-group label { display: block; margin-bottom: 8px; color: #2c3e50; font-weight: 600; }
+.form-group input, .form-group select { width: 100%; padding: 15px; border: 2px solid #ecf0f1; border-radius: 8px; font-size: 16px; font-family: inherit; transition: border-color 0.3s; }
+.form-group input:focus, .form-group select:focus { outline: none; border-color: #00b8d4; }
+.submit-btn { width: 100%; background: linear-gradient(135deg, #00b8d4, #0097a7); color: white; padding: 18px; border: none; border-radius: 30px; font-size: 1.3em; font-weight: 700; cursor: pointer; transition: transform 0.3s; }
+.submit-btn:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,184,212,0.4); }
+
+footer { background: #0d1418; color: white; text-align: center; padding: 40px 20px; }
+footer p { opacity: 0.7; margin: 5px 0; }
+
+.success { display: none; background: #27ae60; color: white; padding: 20px; border-radius: 10px; margin-bottom: 20px; text-align: center; font-weight: 600; }
+.success.show { display: block; }
+
+@media (max-width: 768px) {
+  .hero h1 { font-size: 2.2em; }
+  .hero p { font-size: 1.1em; }
+  .section h2 { font-size: 2.2em; }
+  .form-container { padding: 30px 20px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="container">
+    <div>
+      <div class="logo">MY SKLZ</div>
+      <div class="tagline-small">EMPOWERED POTENTIAL</div>
+    </div>
+    <a href="#start" class="nav-btn">Start Free</a>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <div class="tagline">EMPOWERED POTENTIAL</div>
+    <h1>Learn From The Best.<br>Powered By AI.</h1>
+    <p>Master business skills with AI tutors trained on thousands of hours from Alex Hormozi, Dan Martell, and Gary Vaynerchuk</p>
+    <div class="cta-buttons">
+      <a href="#start" class="btn btn-primary">Try Free Demo</a>
+      <a href="#mentors" class="btn btn-secondary">Meet Your Mentors</a>
+    </div>
+  </div>
+</div>
+
+<div class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat">
+        <h3>100K+</h3>
+        <p>Skills Taught</p>
+      </div>
+      <div class="stat">
+        <h3>3</h3>
+        <p>AI Mentors</p>
+      </div>
+      <div class="stat">
+        <h3>24/7</h3>
+        <p>Access</p>
+      </div>
+      <div class="stat">
+        <h3>2026</h3>
+        <p>Future Ready</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section mentors" id="mentors">
+  <div class="container">
+    <h2>Your AI Business Mentors</h2>
+    <p class="subtitle">Get personalized advice from AI trained on the world's best business minds</p>
+    <div class="grid">
+      <div class="card">
+        <div class="icon">💼</div>
+        <h3>Alex Hormozi</h3>
+        <div class="specialty">Sales & Acquisition</div>
+        <p>Master offers, pricing, sales psychology, and building businesses that scale. Trained on $100M+ in proven frameworks.</p>
+      </div>
+      <div class="card">
+        <div class="icon">⚡</div>
+        <h3>Dan Martell</h3>
+        <div class="specialty">Systems & Efficiency</div>
+        <p>Learn to buy back your time, delegate effectively, and build automated systems that run without you.</p>
+      </div>
+      <div class="card">
+        <div class="icon">🚀</div>
+        <h3>Gary Vaynerchuk</h3>
+        <div class="specialty">Marketing & Hustle</div>
+        <p>Master content creation, social media strategy, and the mindset needed to win in modern business.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="section features">
+  <div class="container">
+    <h2>How It Works</h2>
+    <p class="subtitle">NotebookLM-style learning meets business expertise</p>
+    <div class="feature-grid">
+      <div class="feature-card">
+        <h3>📚 Upload Your Business</h3>
+        <p>Share your goals, challenges, and current situation. Our AI learns your context.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎯 Choose Your Mentor</h3>
+        <p>Pick the AI advisor that matches your challenge - sales, systems, or marketing.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💬 Interactive Chat</h3>
+        <p>Ask questions, get tactical advice, and receive step-by-step action plans.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Track Progress</h3>
+        <p>Monitor your implementation and see real results from applying the advice.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎙️ Audio Summaries</h3>
+        <p>Generate podcast-style discussions about your business challenges.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📈 Action Plans</h3>
+        <p>Get downloadable, step-by-step plans tailored to your specific situation.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cta-section" id="start">
+  <div class="container">
+    <h2>Ready to Level Up?</h2>
+    <p>Join entrepreneurs who are learning faster with AI-powered mentorship</p>
+    <div class="form-container">
+      <div id="successMsg" class="success">
+        🎉 Awesome! Check your email for next steps.
+      </div>
+      <form id="signupForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="mentor">Which Mentor First?</label>
+          <select id="mentor" name="mentor" required>
+            <option value="">Choose one...</option>
+            <option value="hormozi">Alex Hormozi - Sales & Growth</option>
+            <option value="martell">Dan Martell - Systems & Efficiency</option>
+            <option value="garyvee">Gary Vee - Marketing & Content</option>
+          </select>
+        </div>
+        <button type="submit" class="submit-btn">Start Learning Free →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 MY SKLZ - All Rights Reserved</p>
+    <p>Empowered Potential Through AI-Powered Learning</p>
+  </div>
+</footer>
+
+<script>
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const data = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    mentor: document.getElementById('mentor').value,
+    timestamp: new Date().toISOString(),
+    source: 'mysklz.com'
+  };
+  console.log('MySklz Signup:', data);
+  document.getElementById('successMsg').classList.add('show');
+  this.reset();
+  setTimeout(() => {
+    document.getElementById('successMsg').classList.remove('show');
+  }, 5000);
+});
+</script>
+
+</body>
+</html>
